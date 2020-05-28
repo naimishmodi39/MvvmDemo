@@ -11,7 +11,6 @@ class AppDataManager @Inject constructor(
     var mApiHelper: ApiHelper
 ) : DataManager {
 
-
     override fun getAccessToken(): String {
         return mPreferencesHelper.getAccessToken()
     }
@@ -19,15 +18,6 @@ class AppDataManager @Inject constructor(
     override fun setAccessToken(accessToken: String) {
         return mPreferencesHelper.setAccessToken("")
     }
-
-//    override fun doLogin(
-//        cms_id: String,
-//        password: String,
-//        do_logout: String,
-//        push_id: String
-//    ): Observable<LoginResponse> {
-//        return mApiHelper.doLogin(cms_id, password, do_logout, push_id)
-//    }
 
     override fun GET_USERDATA(Page: Int): Observable<UserResponse> {
         return mApiHelper.GET_USERDATA(Page)

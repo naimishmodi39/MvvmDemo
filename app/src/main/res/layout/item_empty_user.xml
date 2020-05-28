@@ -17,30 +17,14 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imageViewEmpty"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/ic_rabbit" />
-
-        <TextView
-            android:id="@+id/tv_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
-            android:text="We do not have anything\nhere right now."
-            android:textColor="@color/colorDarkBlue" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:text="please retry"
-            android:textColor="@color/colorDarkBlue" />
+            android:text="No list available"
+            android:textColor="@color/colorDarkBlue"
+            android:textSize="@dimen/_15sdp" />
 
         <Button
             android:id="@+id/btn_retry"
@@ -49,7 +33,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:onClick="@{() -> viewModel.OnRetryClick()}"
-            android:text="Retry"
+            android:text="Refresh"
             android:textSize="20sp" />
     </LinearLayout>
 

@@ -132,12 +132,10 @@ dependencies {
     // runtime permission
     implementation "org.permissionsdispatcher:permissionsdispatcher:$rootProject.permissionsdispatcher"
     kapt "org.permissionsdispatcher:permissionsdispatcher-processor:$rootProject.permissionsdispatcher"
-
     kapt "com.android.databinding:compiler:$rootProject.compiler_version"
 
 
     //leak cannry
-
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.3'
 
 

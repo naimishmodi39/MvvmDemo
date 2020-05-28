@@ -11,21 +11,6 @@ import com.example.mvvmdemo.R
 
 object Utils {
 
-    fun showLodingDialog(context: Context): ProgressDialog {
-        var dialog: ProgressDialog = ProgressDialog(context)
-        dialog.show()
-        if (dialog.window != null) {
-            dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        }
-        dialog.setContentView(R.layout.progress_dialog)
-        dialog.setIndeterminate(true)
-        dialog.setCancelable(false)
-        dialog.setCanceledOnTouchOutside(false)
-        return dialog
-
-
-    }
-
     private fun isInternetAvailable(context: Context): Boolean {
         var result = false
         val connectivityManager =
@@ -53,7 +38,6 @@ object Utils {
                 }
             }
         }
-
         return result
     }
 }

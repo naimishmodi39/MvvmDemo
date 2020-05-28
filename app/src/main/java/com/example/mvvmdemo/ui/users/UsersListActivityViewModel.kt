@@ -8,17 +8,13 @@ import com.example.mvvmdemo.ui.base.BaseViewModel
 import com.example.mvvmdemo.utils.rx.SchedulerProvider
 import retrofit2.Retrofit
 
-class UsersListActivityViewModel : BaseViewModel<UsersListNavigater> {
-
-    constructor(
-        schedulerProvider: SchedulerProvider,
-        retrofit: Retrofit,
-        mDataManager: DataManager
-    ) : super(
-        schedulerProvider, retrofit, mDataManager
-    ) {
-        ApiCallPlaces()
-    }
+class UsersListActivityViewModel(
+    schedulerProvider: SchedulerProvider,
+    retrofit: Retrofit,
+    mDataManager: DataManager
+) : BaseViewModel<UsersListNavigater>(
+    schedulerProvider, retrofit, mDataManager
+) {
 
     var data: MutableLiveData<List<Data>> = MutableLiveData()
 
@@ -37,10 +33,11 @@ class UsersListActivityViewModel : BaseViewModel<UsersListNavigater> {
         )
     }
 
-
     fun response(): LiveData<List<Data>> {
         return data
     }
 
-
+    init {
+        ApiCallPlaces()
+    }
 }
