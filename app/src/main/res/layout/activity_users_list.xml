@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.googlePlaces.PlacesActivity">
+    tools:context=".ui.users.UsersListActivity">
 
     <data>
 
@@ -10,25 +10,17 @@
 
         <variable
             name="viewModel"
-            type="com.example.mvvmdemo.ui.googlePlaces.PlacesActivityViewModel" />
+            type="com.example.mvvmdemo.ui.users.UsersListActivityViewModel" />
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="@{()->viewModel.Places()}"
-            android:text="call Api" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvPlaces"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/button"
             app:addPlacesItems="@{viewModel.response()}" />
 
         <ProgressBar

@@ -7,6 +7,7 @@ import com.example.mvvmdemo.data.local.AppDataManager
 import com.example.mvvmdemo.data.local.DataManager
 import com.example.mvvmdemo.data.local.prefs.AppPreferencesHelper
 import com.example.mvvmdemo.data.local.prefs.PreferencesHelper
+import com.example.mvvmdemo.data.local.remote.ApiEndPoint
 import com.example.mvvmdemo.data.local.remote.ApiHelper
 import com.example.mvvmdemo.di.PreferenceInfo
 import com.example.mvvmdemo.utils.AppContants
@@ -66,7 +67,7 @@ open class AppModule {
     @Singleton
     fun provideRetrofitInstance(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(AppContants.BASE_URL)
+            .baseUrl(ApiEndPoint.BASE_URL)
             .client(okHttpClient)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())

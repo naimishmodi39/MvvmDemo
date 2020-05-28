@@ -1,17 +1,17 @@
-package com.example.mvvmdemo.ui.googlePlaces
+package com.example.mvvmdemo.ui.users
 
 import android.content.Context
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mvvmdemo.ui.googlePlaces.placesAdapter.PlacesAdapter
+import com.example.mvvmdemo.ui.users.usersListAdapter.UsersListAdapter
 import dagger.Module
 import dagger.Provides
 
 @Module
-class PlacesActivityModul {
+class UsersListActivityModul {
 
     @Provides
-    fun providePlacesAdapter(): PlacesAdapter {
-        return PlacesAdapter()
+    fun providePlacesAdapter(): UsersListAdapter {
+        return UsersListAdapter()
     }
 
     @Provides

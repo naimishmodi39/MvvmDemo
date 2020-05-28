@@ -1,20 +1,20 @@
-package com.example.mvvmdemo.ui.googlePlaces.placesAdapter
+package com.example.mvvmdemo.ui.users.usersListAdapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.benchmate.sports.data.responsebean.PlacesResponse.ResultsItem
-import com.example.mvvmdemo.databinding.ItemEmptyPlacesBinding
-import com.example.mvvmdemo.databinding.ItemPlaceBinding
+
+import com.example.mvvmdemo.data.model.userResponse.Data
+import com.example.mvvmdemo.databinding.ItemEmptyUserBinding
+import com.example.mvvmdemo.databinding.ItemUserBinding
 import com.example.mvvmdemo.ui.base.BaseViewHolder
 
-class PlacesAdapter : RecyclerView.Adapter<BaseViewHolder>() {
+class UsersListAdapter : RecyclerView.Adapter<BaseViewHolder>() {
 
     val VIEW_TYPE_NORMAL: Int = 1
     val VIEW_TYPE_Empty: Int = 0
 
-    var listOfPlaces: ArrayList<ResultsItem> = arrayListOf()
+    var listOfPlaces: ArrayList<Data> = arrayListOf()
     lateinit var mListener: BlogAdapterListener
 
     override fun getItemViewType(position: Int): Int {
@@ -25,7 +25,7 @@ class PlacesAdapter : RecyclerView.Adapter<BaseViewHolder>() {
         when (viewType) {
             VIEW_TYPE_Empty -> {
 
-                val mbinding = ItemEmptyPlacesBinding.inflate(
+                val mbinding = ItemEmptyUserBinding.inflate(
                     LayoutInflater.from(parent.context),
                     parent,
                     false
@@ -34,14 +34,14 @@ class PlacesAdapter : RecyclerView.Adapter<BaseViewHolder>() {
             }
             else -> {
                 val mbinding =
-                    ItemPlaceBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                    ItemUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
                 return PlacesViewHolder(mbinding)
             }
         }
     }
 
-    fun addItems(list: List<ResultsItem>) {
-        listOfPlaces = list as ArrayList<ResultsItem>
+    fun addItems(list: List<Data>) {
+        listOfPlaces = list as ArrayList<Data>
         notifyDataSetChanged()
     }
 
@@ -67,15 +67,16 @@ class PlacesAdapter : RecyclerView.Adapter<BaseViewHolder>() {
     }
 
 
-    inner class EmptyViewHolder constructor(binding: ItemEmptyPlacesBinding) :
-        BaseViewHolder(binding.root), PlacesEmptyViewModel.PlacesEmptyViewHolderEmptyClickListener {
+    inner class EmptyViewHolder constructor(binding: ItemEmptyUserBinding) :
+        BaseViewHolder(binding.root),
+        UsersListEmptyViewModel.PlacesEmptyViewHolderEmptyClickListener {
 
-        var mbinding: ItemEmptyPlacesBinding
-        lateinit var mPlacesEmptyViewModel: PlacesEmptyViewModel
+        var mbinding: ItemEmptyUserBinding
+        lateinit var mUsersListEmptyViewModel: UsersListEmptyViewModel
 
         override fun onBind(Position: Int) {
-            mPlacesEmptyViewModel = PlacesEmptyViewModel(this)
-            mbinding.viewModel = mPlacesEmptyViewModel
+            mUsersListEmptyViewModel = UsersListEmptyViewModel(this)
+            mbinding.viewModel = mUsersListEmptyViewModel
         }
 
         override fun onRetryClick() {
@@ -88,15 +89,15 @@ class PlacesAdapter : RecyclerView.Adapter<BaseViewHolder>() {
     }
 
 
-    inner class PlacesViewHolder(binding: ItemPlaceBinding) : BaseViewHolder(binding.root),
-        PlacesViewModel.PlacesItemViewModelListener {
+    inner class PlacesViewHolder(binding: ItemUserBinding) : BaseViewHolder(binding.root),
+        UsersListViewModel.PlacesItemViewModelListener {
 
-        var mbinding: ItemPlaceBinding
-        lateinit var mPlacesViewModel: PlacesViewModel
+        var mbinding: ItemUserBinding
+        lateinit var mPlacesViewModel: UsersListViewModel
 
         override fun onBind(Position: Int) {
-            val result: ResultsItem = listOfPlaces.get(Position)
-            mbinding.viewModel = PlacesViewModel(this, result)
+            val result: Data = listOfPlaces.get(Position)
+            mbinding.viewModel = UsersListViewModel(this, result)
             mbinding.executePendingBindings()
         }
 

@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.mvvmdemo.ui.googlePlaces.placesAdapter.PlacesEmptyViewModel" />
+            type="com.example.mvvmdemo.ui.users.usersListAdapter.UsersListEmptyViewModel" />
     </data>
 
     <LinearLayout
@@ -26,7 +26,6 @@
 
         <TextView
             android:id="@+id/tv_message"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -36,8 +35,6 @@
             android:textColor="@color/colorDarkBlue" />
 
         <TextView
-
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

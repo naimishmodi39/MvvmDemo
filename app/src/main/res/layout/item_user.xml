@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.mvvmdemo.ui.googlePlaces.placesAdapter.PlacesViewModel" />
+            type="com.example.mvvmdemo.ui.users.usersListAdapter.UsersListViewModel" />
     </data>
 
     <LinearLayout

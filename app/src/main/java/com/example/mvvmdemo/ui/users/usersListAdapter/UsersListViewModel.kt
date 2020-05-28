@@ -1,11 +1,10 @@
-package com.example.mvvmdemo.ui.googlePlaces.placesAdapter
+package com.example.mvvmdemo.ui.users.usersListAdapter
 
 import androidx.databinding.ObservableField
-import com.benchmate.sports.data.responsebean.PlacesResponse.ResultsItem
-
-class PlacesViewModel constructor(
+import com.example.mvvmdemo.data.model.userResponse.Data
+class UsersListViewModel constructor(
     val mListener: PlacesItemViewModelListener,
-    mResult: ResultsItem
+    mResult: Data
 ) {
 
     var image: ObservableField<String>
@@ -21,8 +20,8 @@ class PlacesViewModel constructor(
     }
 
     init {
-        image = ObservableField(mResult.icon!!)
-        name = ObservableField(mResult.name!!)
+        image = ObservableField(mResult.avatar!!)
+        name = ObservableField(mResult.email!!)
     }
 
 }

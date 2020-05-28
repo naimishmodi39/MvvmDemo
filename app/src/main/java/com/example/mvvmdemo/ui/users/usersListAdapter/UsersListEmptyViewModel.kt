@@ -1,6 +1,6 @@
-package com.example.mvvmdemo.ui.googlePlaces.placesAdapter
+package com.example.mvvmdemo.ui.users.usersListAdapter
 
-class PlacesEmptyViewModel(var mClickListener: PlacesEmptyViewHolderEmptyClickListener) {
+class UsersListEmptyViewModel(var mClickListener: PlacesEmptyViewHolderEmptyClickListener) {
 
     fun OnRetryClick() {
         mClickListener.onRetryClick()

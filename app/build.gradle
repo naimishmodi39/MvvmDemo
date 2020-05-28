@@ -135,4 +135,10 @@ dependencies {
 
     kapt "com.android.databinding:compiler:$rootProject.compiler_version"
 
+
+    //leak cannry
+
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.3'
+
+
 }
