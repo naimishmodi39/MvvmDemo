@@ -1,6 +1,5 @@
 package com.example.mvvmdemo.ui.base
 
-import android.app.ProgressDialog
 import android.content.Context
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
@@ -8,15 +7,13 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.example.mvvmdemo.utils.Utils
 import dagger.android.AndroidInjection
 
-//@RuntimePermissions
+
 abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>?> : AppCompatActivity(),BaseFragment.Callback {
 
     lateinit var mViewDataBinding: T
     var mViewModel: V? = null
-    lateinit var mProgressDialog: ProgressDialog
 
     @LayoutRes
     abstract fun getLayoutId(): Int
@@ -53,16 +50,7 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>?> : AppCom
     }
 
 
-    open fun hideLoading() {
-        if (::mProgressDialog.isInitialized && mProgressDialog.isShowing()) {
-            mProgressDialog.cancel()
-        }
-    }
 
-    open fun showLoading() {
-        hideLoading()
-        mProgressDialog = Utils.showLodingDialog(this)
-    }
 
     open fun openActivityOnTokenExpire() {
 //        startActivity(LoginActivity.newIntent(this))

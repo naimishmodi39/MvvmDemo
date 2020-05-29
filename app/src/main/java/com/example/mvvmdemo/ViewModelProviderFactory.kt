@@ -22,7 +22,7 @@ class ViewModelProviderFactory @Inject constructor(
             modelClass.isAssignableFrom(UsersListActivityViewModel::class.java) -> {
                 return UsersListActivityViewModel(schedulerProvider, retrofit, mDataManager) as T
             }
-            else -> return throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
+            else ->  throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
     }
 }

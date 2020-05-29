@@ -30,7 +30,7 @@ open class AppModule {
 
     @Provides
     @Singleton
-    fun provideApiHelper(retrofit: Retrofit):ApiHelper{
+    fun provideApiHelper(retrofit: Retrofit): ApiHelper {
         return retrofit.create(ApiHelper::class.java)
     }
 
@@ -47,18 +47,18 @@ open class AppModule {
             .connectTimeout(3, TimeUnit.MINUTES)
             .readTimeout(3, TimeUnit.MINUTES)
             .addInterceptor { chain ->
-                    val original = chain.request()
-                    val originalHttpUrl = original.url
-                    val url = originalHttpUrl.newBuilder()
-                        .addQueryParameter("user_lang", Locale.getDefault().language)
-                        .addQueryParameter("app_version", "v3/")
-                        .addQueryParameter("user_role", "")
-                        .addQueryParameter("device_type", "1")
-                        .build()
-                    val requestBuilder = original.newBuilder().url(url)
-                        .addHeader("session_id", "")
-                    val request = requestBuilder.build()
-                    chain.proceed(request)
+                val original = chain.request()
+                val originalHttpUrl = original.url()
+                val url = originalHttpUrl.newBuilder()
+                    .addQueryParameter("user_lang", Locale.getDefault().language)
+                    .addQueryParameter("app_version", "v3/")
+                    .addQueryParameter("user_role", "")
+                    .addQueryParameter("device_type", "1")
+                    .build()
+                val requestBuilder = original.newBuilder().url(url)
+                    .addHeader("session_id", "")
+                val request = requestBuilder.build()
+                chain.proceed(request)
             }
         return client
     }
@@ -108,7 +108,7 @@ open class AppModule {
 
     @Provides
     @Singleton
-    fun providerDataManager(mAppDataManager: AppDataManager): DataManager{
+    fun providerDataManager(mAppDataManager: AppDataManager): DataManager {
         return mAppDataManager
     }
 }
